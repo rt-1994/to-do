@@ -1,0 +1,256 @@
+body{
+    overflow-y: hidden;
+}
+
+.header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.header-add {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 12px;
+}
+
+.header-add-date {
+    border-radius: 15px;
+    outline: none;
+    border: 1px #62d7e9 solid;
+    padding: 5px 15px;
+}
+
+.header-add-text {
+    border-radius: 15px;
+    outline: none;
+    border: 1px #62d7e9 solid;
+    padding: 5px 15px;
+    width: 350px;
+}
+
+.header-add-btn {
+    border-radius: 15px;
+    padding: 5px 15px;
+    font-size: 12px;
+    width: 80px;
+    outline: none;
+    background: #62d7e9;
+}
+
+.task-list-btn {
+    border-radius: 15px;
+    padding: 5px 15px;
+    font-size: 12px;
+    outline: none;
+    width: 80px;
+
+}
+
+.header-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    &-img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+}
+
+.header-profile-text {
+    margin: 0;
+
+}
+
+
+.switcher {
+    position: relative;
+    height: 12px;
+    width: 35px;
+    border-radius: 50px;
+    background-color: #2c2b2b;
+    cursor: pointer;
+    margin: 0;
+
+}
+
+.switcher::after {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 10px;
+    top: -3px;
+    left: 0;
+    background-color: white;
+    transition: 0.5s;
+    border: 1px #000 solid;
+}
+
+#check {
+    display: none;
+}
+
+#lab {
+    margin: 0;
+
+}
+
+#check:checked~#lab {
+    .switcher {
+        background: rgb(27, 19, 75);
+    }
+
+    .switcher::after {
+        position: absolute;
+        content: "";
+        border-radius: 10px;
+        left: 18px;
+        background-color: #62d7e9;
+        border: 1px #62d7e9 solid;
+
+    }
+
+}
+
+
+.main {
+    display: flex;
+}
+
+.main-nav {
+    width: 250px;
+    height: 100vh;
+
+    label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        height: 60px;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        line-height: 4;
+
+
+    }
+}
+
+.content-block {
+    display: none;
+}
+
+.tab {
+    display: none;
+}
+
+@for $i from 1 to 3 {
+    .tab:nth-of-type(#{$i}):checked~.main-content {
+        .content-block:nth-child(#{$i}) {
+            display: block;
+        }
+    }
+
+    .tab:nth-of-type(#{$i}):checked~.main-nav label:nth-child(#{$i}) {
+        background: #62d7e9;
+        color: #fff;
+    }
+
+}
+
+.main-content{
+    width: 100%;
+    background: rgb(230, 227, 227);
+}
+
+.main-content-tasks-search {
+    padding: 0 50px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+        width: 60%;
+        height: 30px;
+        border-radius: 15px;
+        outline: none;
+        border: 1px #62d7e9 solid;
+        padding: 5px 15px;
+        background: none;
+        font-size: 12px;
+    }
+}
+
+.task-list {
+    padding: 0 50px;
+    max-height: 71vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25px;
+    border-radius: 25px;
+    background: #fff;
+    padding: 25px 20px;
+    gap: 15px;
+    font-size: 12px;
+
+}
+
+.task-list-item-indicator{
+    flex-basis: 3%;
+
+    span{
+        display: block;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: red;
+        box-shadow: 0 0 5px 0 red;
+    }
+}
+.important{
+    span{
+        background: orange;
+        box-shadow: 0 0 5px 0 orange;
+    }
+}
+.done{
+    span{
+        background: green;
+        box-shadow: 0 0 5px 0 green;
+    }
+}
+
+.task-list-item-text{
+    flex-basis: 60%;
+    margin: 0;
+
+}
+
+.task-list-item-date{
+    flex-basis: 17%;
+}
+
+.task-list-item-date{
+    flex-basis: 10%;
+}
