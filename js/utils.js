@@ -2,7 +2,8 @@
 
 // window.location.href = "/pages/login.html"
 
-import { Task, Render } from "./render.js"
+import { Render } from "./render.js"
+import { Task } from "./tasks.js"
 
 class User {
     constructor(login, password, status) {
@@ -17,7 +18,6 @@ class User {
     }
 
     register(confirm) {
-
         let user = {
             id: this.id,
             login: this.login,
@@ -32,20 +32,16 @@ class User {
 
             localStorage.setItem("users", JSON.stringify(users))
         }
-
-
     }
-
-
 }
 
-class Store{
-    constructor(){
+class Store {
+    constructor() {
 
     }
 
-    getFromLocalStore(){
-        if(localStorage['tasks']){
+    getFromLocalStore() {
+        if (localStorage['tasks']) {
             JSON.parse(localStorage['tasks']).forEach(value => {
                 let task = new Task(value.desc, value.date, value.status, value.important)
                 let taskRender = new Render(document.querySelector('.task-list'), task.add(value.id))
@@ -55,4 +51,4 @@ class Store{
     }
 }
 
-export {Store}
+export { Store }
