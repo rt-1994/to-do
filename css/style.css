@@ -260,6 +260,9 @@ body {
   width: 13px;
   height: 13px;
   border-radius: 50%;
+}
+
+.to-do span {
   background: red;
   box-shadow: 0 0 5px 0 red;
 }
@@ -279,8 +282,13 @@ body {
   margin: 0;
 }
 
-.task-list-item-date {
-  flex-basis: 17%;
+.through {
+  text-decoration: line-through;
+}
+
+.tast-list-item-date {
+  flex-basis: 12%;
+  margin: 0;
 }
 
 .task-list-item-date {
