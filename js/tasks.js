@@ -1,4 +1,4 @@
-import {Render} from './render.js'
+import { Render } from './render.js'
 
 class Task {
     constructor(desc, date, status, priority) {
@@ -61,6 +61,22 @@ class Task {
         return item
     }
 
+    addWidthCategory(taskItem) {
+        let item = `
+        <div class="task-item" id="${taskItem.id}">
+            <p class="task-item-text">${taskItem.desc}</p>
+            <div class="task-item-bottom">
+                <p class="task-item-date">${taskItem.date}</p>
+                <div class="task-item-buttons">
+                    <button type="submit" class="btn btn-danger task-list-btn delete">Delete</button>
+                    <button type="submit" class="btn btn-info task-list-btn edit">Edit</button>
+                </div>
+            </div>
+        </div>
+        `
+        return item
+    }
+
     edit(id) {
 
         this.tasks.map(function (item) {
@@ -110,6 +126,41 @@ class Task {
             let taskRender = new Render(document.querySelector('.task-list'), task.add(value.id))
             taskRender.render()
         })
+    }
+
+    dragAndDrop(task, taskLists) {
+
+        for (let taskList of taskLists) {
+            taskList.ondragover = (event) => event.preventDefault()
+            taskList.ondrop = () => {
+                taskList.append(task)
+
+                if (taskList.id == 'important') {
+                    this.tasks.map(function (item) {
+                        if (item.id == task.id) {
+                            item.important = true
+                            item.status = 'to-do'
+                        }
+                    })
+                } else if (taskList.id == 'done') {
+                    this.tasks.map(function (item) {
+                        if (item.id == task.id) {
+                            item.status = 'done'
+                        }
+                    })
+                } else if (taskList.id == 'in-process') {
+                    this.tasks.map(function (item) {
+                        if (item.id == task.id) {
+                            item.important = false
+                            item.status = 'to-do'
+                        }
+                    })
+                }
+
+                localStorage.setItem("tasks", JSON.stringify(this.tasks))
+            }
+
+        }
     }
 }
 
