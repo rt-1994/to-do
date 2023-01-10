@@ -7,7 +7,7 @@ class Task {
         this.date = date
         this.status = status
         this.priority = priority
-        this.tasks = JSON.parse(localStorage['tasks'])
+        this.tasks = localStorage['tasks'] ? JSON.parse(localStorage['tasks']) : []
     }
 
     generateId() {
@@ -23,7 +23,7 @@ class Task {
             important: this.priority
         }
 
-        let tasks = localStorage['tasks'] ? JSON.parse(localStorage['tasks']) : []
+        let tasks = this.tasks
 
         tasks.push(task)
 

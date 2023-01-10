@@ -9,14 +9,14 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="wrapper bg">
         <div class="card login-card">
             <img class="card-img-top login-img" src="../img/images.png" alt="Card image cap">
-            <form class="login-form">
+            <div class="login-form">
                 <div class="form-group">
                   <label for="login">Login</label>
                   <input type="text" class="form-control" id="login" aria-describedby="emailHelp" placeholder="">
@@ -26,9 +26,13 @@
                   <input type="password" class="form-control" id="password" placeholder="">
                 </div>
                 <button type="submit" class="btn btn-primary login-btn">Sign in</button>
-              </form>
+              </div>
             <a href="register.html">Register</a>
           </div>
+
+          <div class="notifications"></div>
     </div>
+
+    <script type="module" src="../js/login.js"></script>
 </body>
 </html>

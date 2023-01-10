@@ -3,39 +3,15 @@
 import { Render } from "./render.js"
 import { Task } from "./tasks.js"
 
-class User {
-    constructor(login, password, status) {
-        this.id = this.generateId()
-        this.login = login
-        this.password = password
-        this.status = status
-    }
-
-    generateId() {
-        return Math.floor(Math.random() * 100000000)
-    }
-
-    register(confirm) {
-        let user = {
-            id: this.id,
-            login: this.login,
-            password: this.password,
-            status: "user",
-        }
-
-        if (user.password == confirm) {
-            let users = localStorage['users'] ? JSON.parse(localStorage['users']) : []
-
-            users.push(user)
-
-            localStorage.setItem("users", JSON.stringify(users))
-        }
-    }
-}
-
 class Store {
     constructor() {
 
+    }
+
+    getUsersFromLocalStore(){
+        if (localStorage['users']) {
+            return JSON.parse(localStorage['users'])
+        }
     }
 
     getFromLocalStore() {
@@ -97,4 +73,26 @@ class Store {
     }
 }
 
-export { Store }
+
+class Notification {
+    constructor(message, color) {
+        this.message = message
+        this.color = color
+    }
+
+    show() {
+        let notification =
+            `<div class="notification ${this.color}">
+            <p>${this.message}</p>
+        </div>`
+
+        new Render(document.querySelector('.notifications'), notification).renderBegin()
+
+        setTimeout(function () {
+            document.querySelector('.notification').remove()
+        }, 15000)
+    }
+
+}
+
+export { Store, Notification }

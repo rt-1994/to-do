@@ -1,0 +1,17 @@
+.register-card{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    box-shadow: 0 4px 5px 1px rgb(102, 99, 99);
+    padding: 25px;
+    height: 450px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register-btn{
+    width: 100%;
+}

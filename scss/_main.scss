@@ -81,16 +81,19 @@ body {
 
 }
 
+.permissions{
+    display: none;
+}
+
 .header-profile-settings {
     position: absolute;
     background: #fff;
-    width: 120px;
-    height: 100px;
+    width: 110px;
     box-shadow: 0 0 5px 0 rgb(71, 70, 70);
     padding: 10px;
     list-style: none;
-    bottom: -110px;
-    left: 37px;
+    top: 50px;
+    left: 5px;
     display: none;
     z-index: 5;
 
@@ -101,6 +104,11 @@ body {
     li:hover {
         // font-size: 13px; 
         font-weight: 700;
+    }
+
+    a{
+        text-decoration: none;
+        color: #000;
     }
 }
 
@@ -348,6 +356,73 @@ body {
         }
     }
 
+}
+
+@keyframes animate {
+    0%  {   right: -200%;}
+    20% {
+            right: 2px;
+            position: static;
+        }
+    80% {
+            right: 2px;
+            position: static;
+        }
+    100%{  right: -200%;}
+  }
+
+.notifications{
+    position: fixed;
+    top: 75px;
+    right: 2px;
+    min-width: 200px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notification{
+    position: absolute;
+    top: 0;
+    right: -200%;
+    min-width: 200px;
+    max-width: 400px;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.5s;
+    animation: animate;
+    animation-duration: 4s;
+    p{
+        margin: 0;
+    }
+}
+
+
+
+.show-notification{
+    right: 2px;
+}
+
+.orange{
+    background: orange;
+}
+
+.red{
+    background: rgb(245, 73, 73);
+}
+
+.blue{
+    background: rgb(60, 220, 241);
+}
+
+.green{
+    background: rgb(116, 235, 37);
 }
 
 .show {

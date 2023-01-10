@@ -9,6 +9,10 @@ class Render {
     render() {
         this.parrent.insertAdjacentHTML('beforeend', this.content)
     }
+
+    renderBegin() {
+        this.parrent.insertAdjacentHTML('afterbegin', this.content)
+    }
 }
 
 
