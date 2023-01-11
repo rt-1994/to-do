@@ -1,4 +1,5 @@
 import { Render } from './render.js'
+import { User } from './user.js'
 
 class Task {
     constructor(desc, date, status, priority) {
@@ -33,6 +34,8 @@ class Task {
     add(id) {
         let taskIndicatorStatus = ""
         let taskTextStatus = ""
+        let deleteBtn = ""
+        let editBtn = ""
         if (this.priority && this.status == "to-do") {
             taskIndicatorStatus = "important"
         } else if (this.priority && this.status == "done") {
@@ -48,6 +51,14 @@ class Task {
 
         }
 
+        if(!new User().checkUserPermission().canDelete){
+            deleteBtn = 'hide'
+        }
+
+        if(!new User().checkUserPermission().canEdit){
+            editBtn = 'hide'
+        }
+
         let item =
             `<div class="task-list-item" data-id="${id}" id="${id}">
                 <div class="task-list-item-indicator to-do ${taskIndicatorStatus}">
@@ -55,21 +66,30 @@ class Task {
                 </div>
                 <p class="task-list-item-text ${taskTextStatus}">${this.desc}</p>
                 <p class="tast-list-item-date">${this.date}</p>
-                <button type="submit" class="btn btn-danger task-list-btn delete">Delete</button>
-                <button type="submit" class="btn btn-info task-list-btn edit">Edit</button>
+                <button type="submit" class="btn btn-danger task-list-btn delete ${deleteBtn}">Delete</button>
+                <button type="submit" class="btn btn-info task-list-btn edit ${editBtn}">Edit</button>
             </div>`
         return item
     }
 
     addWidthCategory(taskItem) {
+        let deleteBtn = ""
+        let editBtn = ""
+        if(!new User().checkUserPermission().canDelete){
+            deleteBtn = 'hide'
+        }
+
+        if(!new User().checkUserPermission().canEdit){
+            editBtn = 'hide'
+        }
         let item = `
         <div class="task-item" id="${taskItem.id}">
             <p class="task-item-text">${taskItem.desc}</p>
             <div class="task-item-bottom">
                 <p class="task-item-date">${taskItem.date}</p>
                 <div class="task-item-buttons">
-                    <button type="submit" class="btn btn-danger task-list-btn delete">Delete</button>
-                    <button type="submit" class="btn btn-info task-list-btn edit">Edit</button>
+                    <button type="submit" class="btn btn-danger task-list-btn delete ${deleteBtn}">Delete</button>
+                    <button type="submit" class="btn btn-info task-list-btn edit ${editBtn}">Edit</button>
                 </div>
             </div>
         </div>

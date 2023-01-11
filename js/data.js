@@ -1,4 +1,4 @@
-let users = [
+let user = [
     {
         id: 111111,
         login: 'admin',
@@ -10,4 +10,4 @@ let users = [
     }
 ]
 
-export {users}
+export {user}

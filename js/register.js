@@ -28,17 +28,22 @@ generatePass.addEventListener('click', function(){
 })
 
 registerBtn.addEventListener('click', function(){
-    if(password.value != confirm.value || password.value =="" || confirm.value == ""){
-        new Notification('Password does not match or is incorrect', 'red').show()
-    }
-    else if(login.value.length < 4){
-        new Notification('Login is too short', 'red').show()
+    if(!new User().checkUser(login.value)){
+        if(password.value != confirm.value || password.value =="" || confirm.value == ""){
+            new Notification('Password does not match or is incorrect', 'red').show()
+        }
+        else if(login.value.length < 4){
+            new Notification('Login is too short', 'red').show()
+        }
+        else{
+            new User(login.value, password.value).signUp()
+            new Notification('User registered', 'green').show()
+            login.value = ""
+            password.value = ""
+            confirm.value = ""
+        }
     }
     else{
-        new User(login.value, password.value).signUp()
-        new Notification('User registered', 'green').show()
-        login.value = ""
-        password.value = ""
-        confirm.value = ""
+        new Notification('User already exists', 'green').show()
     }
 })

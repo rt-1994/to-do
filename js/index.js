@@ -1,6 +1,7 @@
 'use strict'
 
 import { Render } from "./render.js"
+import { User } from "./user.js"
 import { Task } from "./tasks.js"
 import { Store, Notification } from "./utils.js"
 
@@ -23,6 +24,7 @@ let doneCategory = document.querySelector('#done')
 let logout = document.querySelector('.logout')
 let nikname = document.querySelector('.header-profile-text')
 let permissions = document.querySelector('.permissions')
+let addTask = document.querySelector('.header-add')
 
 new Store().getFromLocalStore()
 
@@ -38,12 +40,10 @@ else{
     nikname.innerHTML = 'anonymous'
 }
 
-
-
 addBtn.addEventListener('click', function () {
     let importantStatus = important.checked ? true : false
     if(importantStatus){
-        new Notification('Important', 'orange').show()
+        new Notification('Task status is important', 'orange').show()
     }
     let task = new Task(description.value, date.value, "to-do", importantStatus)
     task.create()
@@ -155,3 +155,11 @@ categoryInner.addEventListener("click", function (event) {
         new Store().getWidthCategories(inProcessCategory, importantCategory, doneCategory)
     }
 })
+
+if(!new User().checkUserPermission().canAdd){
+    addTask.classList.add('hide')
+}
+
+if(new User().checkUserPermission().status != 'admin'){
+    permissions.classList.add('hide')
+}

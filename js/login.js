@@ -1,8 +1,11 @@
 import { User } from "./user.js";
 import { Store } from "./utils.js";
 import { Notification } from "./utils.js";
+import { user } from "./data.js";
 
-new User().addAdminUser()
+if(!localStorage['users']){
+    localStorage.setItem("users", JSON.stringify(user))
+} 
 
 let login = document.querySelector('#login')
 let password = document.querySelector('#password')
@@ -14,15 +17,10 @@ loginBtn.addEventListener('click', ()=>{
     users.forEach(function(user){
         if(user.login == login.value && user.password == password.value){
             localStorage.setItem("currentUser", JSON.stringify({id: user.id, login: user.login}))
-
-            // new User().checkUserPermission()
-
             window.location.href = 'main.html'
         }
-        else{
-            new Notification('Login or password incorrect', 'red').show()
-        }
     })
+    new Notification('Login or password incorrect', 'red').show()
 })
 
 

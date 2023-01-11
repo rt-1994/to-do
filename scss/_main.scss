@@ -21,6 +21,11 @@ body {
     align-items: center;
     gap: 30px;
     font-size: 12px;
+
+}
+
+.hide{
+    display: none;
 }
 
 .header-add-date {
@@ -79,10 +84,6 @@ body {
 .header-profile-text {
     margin: 0;
 
-}
-
-.permissions{
-    display: none;
 }
 
 .header-profile-settings {
