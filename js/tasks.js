@@ -51,11 +51,11 @@ class Task {
 
         }
 
-        if(!new User().checkUserPermission().canDelete){
+        if (!new User().checkUserPermission().canDelete) {
             deleteBtn = 'hide'
         }
 
-        if(!new User().checkUserPermission().canEdit){
+        if (!new User().checkUserPermission().canEdit) {
             editBtn = 'hide'
         }
 
@@ -75,11 +75,11 @@ class Task {
     addWidthCategory(taskItem) {
         let deleteBtn = ""
         let editBtn = ""
-        if(!new User().checkUserPermission().canDelete){
+        if (!new User().checkUserPermission().canDelete) {
             deleteBtn = 'hide'
         }
 
-        if(!new User().checkUserPermission().canEdit){
+        if (!new User().checkUserPermission().canEdit) {
             editBtn = 'hide'
         }
         let item = `

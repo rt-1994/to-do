@@ -23,46 +23,7 @@
             <div class="users-form">
                 <h3 class="form-title">User list</h3>
                 <div class="user-list">
-                    <div class="user-list-item">
-                        <div>
-                            <span>1.</span>
-                            <span>Admin</span>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-danger task-list-btn delete">Delete</button>
-                            <button type="submit" class="btn btn-info task-list-btn change">Change</button>
-                        </div>
-                    </div>
-                    <div class="user-list-item">
-                        <div>
-                            <span class="user-num">1.</span>
-                            <span class="user-login">Admin</span>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-danger task-list-btn delete">Delete</button>
-                            <button type="submit" class="btn btn-info task-list-btn change">Change</button>
-                        </div>
-                    </div>
-                    <div class="user-list-item">
-                        <div>
-                            <span>1.</span>
-                            <span>Admin</span>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-danger task-list-btn delete">Delete</button>
-                            <button type="submit" class="btn btn-info task-list-btn change">Change</button>
-                        </div>
-                    </div>
-                    <div class="user-list-item">
-                        <div>
-                            <span>1.</span>
-                            <span>Admin</span>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-danger task-list-btn delete">Delete</button>
-                            <button type="submit" class="btn btn-info task-list-btn change">Change</button>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="add-form">
@@ -97,44 +58,42 @@
                 </div>
             </div>
         </div>
-        <div class="settings-modal">
+        <div class="settings-modal hide">
             <div class="settings-modal-inner">
                 <h3 class="form-title">Settings</h3>
 
                 <div class="form-group">
-                    <label for="login">Login</label>
+                    <label for="modal-login">Login</label>
                     <input type="text" class="form-control" id="modal-login" aria-describedby="emailHelp" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <label for="modal-password">Password</label>
                     <input type="password" class="form-control" id="modal-password" placeholder="">
                 </div>
                 <div class="form-group add-form-checkboxes">
                     <div>
                         <input class="form-check-input" type="checkbox" value="" id="modal-generate"><label
-                            for="generate">Generate</label>
+                            for="modal-generate">Generate</label>
                     </div>
                     <div>
-                        <input class="form-check-input" type="checkbox" value="" id="modal-showPassword"><label
-                            for="showPassword">Show password</label>
+                        <input class="form-check-input" type="checkbox" value="" id="modal-show-password"><label
+                            for="modal-show-password">Show password</label>
                     </div>
                     <div>
                         <input class="form-check-input" type="checkbox" value="" id="modal-make-admin"><label
-                            for="make-admin">Make admin</label>
+                            for="modal-make-admin">Make admin</label>
                     </div>
                 </div>
                 <div class="form-group modal-drag-and-drop">
-                    <div class="active">
+                    <div class="active ">
                         <h6>Active</h6>
-                        <div class="active-list">
-                            <div class="rule">Can edit</div>
-                            <div class="rule">Can delete</div>
-                            <div class="rule">Can delete</div>
+                        <div class="active-list rule-list" id="active-list">
+                            
                         </div>
                     </div>
                     <div class="available">
                         <h6>Available</h6>
-                        <div class="available-list">
+                        <div class="available-list rule-list" id="available-list">
 
                         </div>
                     </div>

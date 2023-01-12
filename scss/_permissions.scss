@@ -66,7 +66,6 @@
     position: relative;
     height: 100vh;
     background: rgba(0, 0, 0, 0.507);
-    display: none;
 }
 
 .settings-modal-inner{
@@ -105,6 +104,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    height: 120px;
 }
 
 .modal-form-buttons{
